@@ -1,6 +1,6 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "commitless",
+  "description": "Static site editor",
   "version": "0.0.1",
   "scripts": {
     "dev": "node server.js",
@@ -28,5 +28,24 @@
     "svelte-loader": "^2.3.1",
     "uglifyjs-webpack-plugin": "^1.1.2",
     "webpack": "^3.10.0"
-  }
+  },
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commitless/commitless.git"
+  },
+  "keywords": [
+    "static",
+    "site",
+    "git",
+    "version",
+    "control"
+  ],
+  "author": "Nick Doiron <ndoiron@mapmeld.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/commitless/commitless/issues"
+  },
+  "homepage": "https://github.com/commitless/commitless#readme"
 }
