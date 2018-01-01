@@ -1,20 +1,33 @@
 <:Head>
-	<title>Sapper project template</title>
+	<title>Commitless</title>
 </:Head>
 
 <Layout page='home'>
-	<h1>Great success!</h1>
+	<h1>Commitless</h1>
 
-	<figure>
-		<img src='/great-success.png'>
-		<figcaption>HIGH FIVE!</figcaption>
-	</figure>
+	<p>
+		<strong>An experiment</strong> in collaborative coding.
+	</p>
 
-	<p><strong>Try editing this file (routes/index.html) to test hot module reloading.</strong></p>
+	{{#each projects as project, p}}
+	    {{#if project}}
+			   <ProjectPreview project={{project}}/>
+			{{/if}}
+	{{/each}}
+
+	<br/>
+	<hr/>
+	<br/>
+	<br/>
+	<form class='form' action='http://localhost:8080/projects' method='POST'>
+		<h3>New Project</h3>
+		<input type='text' name='name' placeholder='Project Name' value=''/>
+		<input type='submit' value='Create'/>
+	</form>
 </Layout>
 
 <style>
-	h1, figure, p {
+	h1, p {
 		text-align: center;
 		margin: 0 auto;
 	}
@@ -24,10 +37,6 @@
 		text-transform: uppercase;
 		font-weight: 700;
 		margin: 0 0 0.5em 0;
-	}
-
-	figure {
-		margin: 0 0 1em 0;
 	}
 
 	img {
@@ -49,10 +58,20 @@
 
 <script>
 	import Layout from './_components/Layout.html';
+	import ProjectPreview from './_components/Projects/Preview.html';
 
 	export default {
 		components: {
-			Layout
+			Layout,
+			ProjectPreview
+		},
+
+		preload({ params }) {
+			return fetch(`http://localhost:8080/projects`)
+				.then(r => r.json())
+				.then(projects => {
+					return { projects };
+				});
 		}
 	};
 </script>
