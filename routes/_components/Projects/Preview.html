@@ -1,6 +1,12 @@
 <article>
-  <h3>{{project.name}}</h3>
-  {{project.html}}
-  {{project.js}}
-  {{project.css}}
+  <h3>
+    <a href="/page/{{project._id}}">{{project.name}}</a>
+    <small> by {{project.user}}</small>
+  </h3>
+  {{#if project.description}}
+    <p>{{project.description}}</p>
+  {{/if}}
+  {{#if !project.description}}  
+    <p>No description</p>
+  {{/if}}
 </article>

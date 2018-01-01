@@ -12,16 +12,18 @@
 	{{#each projects as project, p}}
 	    {{#if project}}
 			   <ProjectPreview project={{project}}/>
+				 <br/>
+				 <hr/>
 			{{/if}}
 	{{/each}}
 
-	<br/>
-	<hr/>
+
 	<br/>
 	<br/>
 	<form class='form' action='http://localhost:8080/projects' method='POST'>
 		<h3>New Project</h3>
 		<input type='text' name='name' placeholder='Project Name' value=''/>
+		<input type='text' name='description' placeholder='Description' value=''/>
 		<input type='submit' value='Create'/>
 	</form>
 </Layout>
