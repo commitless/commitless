@@ -1,8 +1,9 @@
-const fs = require('fs');
-const app = require('express')();
-const compression = require('compression');
-const sapper = require('sapper');
-const static = require('serve-static');
+const fs = require('fs'),
+      app = require('express')(),
+			compression = require('compression'),
+			sapper = require('sapper'),
+			static = require('serve-static'),
+			helmet = require('helmet');
 
 const { PORT = 3000 } = process.env;
 
@@ -13,6 +14,7 @@ global.fetch = (url, opts) => {
 	return fetch(url, opts);
 };
 
+app.use(helmet());
 app.use(compression({ threshold: 0 }));
 
 app.use(static('assets'));
