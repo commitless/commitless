@@ -20,7 +20,7 @@
 
 	<br/>
 	<br/>
-	<form class='form' action='http://localhost:8080/projects' method='POST'>
+	<form class='form' action='https://api.commitless.com/projects' method='POST'>
 		<h3>New Project</h3>
 		<input type='text' name='name' placeholder='Project Name' value=''/>
 		<input type='text' name='description' placeholder='Description' value=''/>
@@ -69,7 +69,7 @@
 		},
 
 		preload({ params }) {
-			return fetch(`http://localhost:8080/projects`)
+			return fetch(`https://api.commitless.com/projects`)
 				.then(r => r.json())
 				.then(projects => {
 					return { projects };
