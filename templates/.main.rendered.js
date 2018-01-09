@@ -1,0 +1,4 @@
+import { init } from '/Users/ndoiron404/Documents/commitless/node_modules/sapper/runtime/app.js';
+
+// `routes` is an array of route objects injected by Sapper
+init(document.querySelector('#sapper'), [{ pattern: /^\/page\/([^\/]+)$/, params: match => ({ id: match[1] }), load: () => import(/* webpackChunkName: "page_$id$" */ '/Users/ndoiron404/Documents/commitless/routes/page/[id].html') }, { pattern: /^\/about$/, params: match => ({}), load: () => import(/* webpackChunkName: "about" */ '/Users/ndoiron404/Documents/commitless/routes/about.html') }, { pattern: /^\/$/, params: match => ({}), load: () => import(/* webpackChunkName: "_" */ '/Users/ndoiron404/Documents/commitless/routes/index.html') }]);
